@@ -1,42 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Display URL Parameters</title>
-    <!-- Google Tag Manager -->
-    <script>
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l;j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-WLC94CSL');</script>
-    <!-- End Google Tag Manager -->
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WLC94CSL');</script>
+<!-- End Google Tag Manager -->
+
+  <title>this is a web title</title>
 </head>
+ 
 <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WLC94CSL"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-    <h1>URL Parameters</h1>
-    <p id="key1">Key1: </p>
-    <p id="key2">Key2: </p>
-    <script>
-        window.addEventListener('DOMContentLoaded', function() {
-            var key1 = new URLSearchParams(window.location.search).get('key1');
-            var key2 = new URLSearchParams(window.location.search).get('key2');
-            document.getElementById('key1').textContent = 'Key1: ' + key1;
-            document.getElementById('key2').textContent = 'Key2: ' + key2;
+   <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WLC94CSL"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+  
+  <h2>hello world</h2>
+  <h4>key1 is: <span style="color:blue;" id="key1"></span></h4>
+<h4>key2 is: <span style="color:blue;" id="key2"></span></h4>
+  <script>
+    var key1Val="",key2Val="";
+    var str=window.location.search;
+    str=str.replace("?","");
+    let arr=str.split("&")
+    if(Array.isArray(arr)){
+        let key1Str=arr[0]
+        let key2Str;
+        if(arr.length>=2){
+            key2Str=arr[1];
+            key2Val=key2Str?key2Str.replace("key2=",""):"";
+        }
+        key1Val=key1Str.replace("key1=","");
 
-            // Pass data to JavaScript tag
-            var customerid = key1;
-            var customeremail = key2;
+    }
+    document.getElementById("key1").innerText=key1Val;
+    document.getElementById("key2").innerText=key2Val;
+  </script>
 
-            // This is a placeholder for the JavaScript tag logic
-            // Replace this with the actual JavaScript tag implementation
-            console.log('Customer ID:', customerid);
-            console.log('Customer Email:', customeremail);
-        });
-    </script>
+  <script type="text/javascript"> (function (a, b, c, d, e, f, g) {
+    e['ire_o'] = c;
+    e[c] = e[c] || function () {
+        (e[c].a = e[c].a || []).push(arguments)
+    };
+    f = d.createElement(b);
+    g = d.getElementsByTagName(b)[0];
+    f.async = 1;
+    f.src = a;
+    g.parentNode.insertBefore(f, g);
+})('https://utt.impactcdn.com/A2788006-de3d-4011-a57c-c4737e79de0365535.js', 'script', 'ire', document, window);
+ire('identify', {customerid: key1Val , customeremail: key2Val});
+</script>
 </body>
-</html>
