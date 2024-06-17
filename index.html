@@ -21,22 +21,16 @@
     <h1>URL Parameters</h1>
     <p id="key1">Key1: </p>
     <p id="key2">Key2: </p>
-    <script>
-        window.addEventListener('DOMContentLoaded', function() {
-            var key1 = new URLSearchParams(window.location.search).get('key1');
-            var key2 = new URLSearchParams(window.location.search).get('key2');
-            document.getElementById('key1').textContent = 'Key1: ' + key1;
-            document.getElementById('key2').textContent = 'Key2: ' + key2;
-
-            // Pass data to JavaScript tag
-            var customerid = key1;
-            var customeremail = key2;
-
-            // This is a placeholder for the JavaScript tag logic
-            // Replace this with the actual JavaScript tag implementation
-            console.log('Customer ID:', customerid);
-            console.log('Customer Email:', customeremail);
-        });
+    <script type="text/javascript"> 
+        (function(a,b,c,d,e,f,g){e['ire_o']=c;e[c]=e[c]||function(){(e[c].a=e[c].a||[]).push(arguments)};
+        f=d.createElement(b);
+        g=d.getElementsByTagName(b)[0];
+        f.async=1;
+        f.src=a;
+        g.parentNode.insertBefore(f,g);
+        })
+        ('https://utt.impactcdn.com/A2788006-de3d-4011-a57c-c4737e79de0365535.js','script','ire',document,window); 
+        ire('identify', {customerid: '' /*INSERT key1*/, customeremail: '' /*INSERT key2*/}); 
     </script>
 </body>
 </html>
