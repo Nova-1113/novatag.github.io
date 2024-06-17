@@ -1,40 +1,28 @@
+<html>
 <head>
-  <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-WLC94CSL');</script>
-<!-- End Google Tag Manager -->
-
-  <title>this is a web title</title>
-</head>
- 
-<body>
-   <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WLC94CSL"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-  
-  <h2>hello world</h2>
-  <h4>key1 is: <span style="color:blue;" id="key1"></span></h4>
-<h4>key2 is: <span style="color:blue;" id="key2"></span></h4>
+  <title>Display URL Parameters</title>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GTM-WLC94CSL"></script>
   <script>
-    var key1Val="",key2Val="";
-    var str=window.location.search;
-    str=str.replace("?","");
-    let arr=str.split("&")
-    if(Array.isArray(arr)){
-        let key1Str=arr[0]
-        let key2Str;
-        if(arr.length>=2){
-            key2Str=arr[1];
-            key2Val=key2Str?key2Str.replace("key2=",""):"";
-        }
-        key1Val=key1Str.replace("key1=","");
-
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'GTM-XXXXXX');
+  </script>
+  <script>
+    function displayParams() {
+      var params = window.dataLayer.find(item => item.event === 'queryParams');
+      if (params) {
+        document.getElementById('key1').textContent = params.key1;
+        document.getElementById('key2').textContent = params.key2;
+      }
     }
-    document.getElementById("key1").innerText=key1Val;
-    document.getElementById("key2").innerText=key2Val;
-  
+    
+    window.addEventListener('load', displayParams);
+  </script>
+</head>
+<body>
+  <h1>URL Parameters</h1>
+  <p>Key1: <span id="key1"></span></p>
+  <p>Key2: <span id="key2"></span></p>
 </body>
+</html>
